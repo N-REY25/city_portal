@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ru" class="html_login">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Регисратция</title>
+        <link rel="stylesheet" href="../css/style.css">
+    </head>
+    <body class="body_login">
+        <div class="form_login">
+            <img src="../img/logo.svg" alt="">
+            <input id="name" type="text" placeholder="Введите имя">
+            <input id="surname" type="text" placeholder="Введите фамилию">
+            <input id="patronymic" type="text" placeholder="Введите отчество">
+            <input id="login" type="text" placeholder="Введите логин">
+            <input id="email" type="text" placeholder="Введите email">
+            <input id="password" type="password" placeholder="Введите пароль">
+            <input id="password_two" type="password" placeholder="Повторите пароль">
+            <p>Нажимая кнопку регистрации вы автоматически соглашаетесь на обработку персональных данных</p>
+            <button onclick="ajax()">Зарегистрироваться</button>
+            <a href="/admin">Войти</a>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+        <script>
+            function ajax() {
+                var error = '';
+                var login = '';
+                var name = document.querySelector('#name').value;
+                var surname = document.querySelector('#surname').value;
+                var patronymic = document.querySelector('#patronymic').value;
+                var login = document.querySelector('#login').value;
+                var email = document.querySelector('#email').value;
+                var password = document.querySelector('#password').value;
+                var password_two = document.querySelector('#password_two').value;
+                
+                
+                if (password_two == '') {
+                    error = 'Введите повторный пароль!';
+                }
+                if (password == '') {
+                    error = 'Введите пароль!';
+                }
+                if (email == '') {
+                    error = 'Введите email!';
+                }
+                if (login == '') {
+                    error = 'Введите login!';
+                }
+                if (patronymic == '') {
+                    error = 'Введите отчество!';
+                }
+                if (surname == '') {
+                    error = 'Введите фамилию!';
+                }
+                if (name == '') {
+                    error = 'Введите имя!';
+                }
+                if (password_two != password) {
+                    error = 'Пароли не совпадают!';
+                }
+
+                if (error == '') {
+                    $.ajax({
+                        url: '/api/',         /* Куда пойдет запрос */
+                        method: 'get',             /* Метод передачи (post или get) */
+                        dataType: 'json',          /* Тип данных в ответе (xml, json, script, html). */
+                        data: {method: 'login', login: login},     /* Параметры передаваемые в запросе. */
+                        success: function(data){   /* функция которая будет выполнена после успешного запроса.  */
+                            if (data['login'] == false) {
+                                $.ajax({
+                                    url: '/api/',         /* Куда пойдет запрос */
+                                    method: 'post',             /* Метод передачи (post или get) */
+                                    dataType: 'json',          /* Тип данных в ответе (xml, json, script, html). */
+                                    data: {method: 'reg', name: name, surname: surname, patronymic: patronymic, login: login, email: email, password: password},     /* Параметры передаваемые в запросе. */
+                                    success: function(data){   /* функция которая будет выполнена после успешного запроса.  */
+                                        $(location).attr('href', '/admin');
+                                    }
+                                });
+                            } else {
+                                alert('Пользователь уже существует!');
+                            }
+                        }
+                    });
+                } else {
+                    alert(error);
+                }
+            }
+        </script>
+    </body>
+</html>

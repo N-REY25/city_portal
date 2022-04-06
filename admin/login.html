@@ -26,6 +26,9 @@
                         if (data['status'] == 'error') {
                             alert(data['message']);
                         }
+                        if (data['status'] == 'successful') {
+                            $(location).attr('href', '/admin')
+                        }
                     }
                 });
             }

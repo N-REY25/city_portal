@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Апр 06 2022 г., 16:24
+-- Время создания: Апр 06 2022 г., 21:04
 -- Версия сервера: 10.3.13-MariaDB-log
 -- Версия PHP: 7.1.32
 
@@ -60,6 +60,7 @@ CREATE TABLE `users` (
   `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `surname` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `patronymic` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `login` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `password` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `position` int(11) NOT NULL
@@ -69,8 +70,9 @@ CREATE TABLE `users` (
 -- Дамп данных таблицы `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `surname`, `patronymic`, `login`, `password`, `position`) VALUES
-(1, 'admin', '', '', 'admin', '69e0aa3a5ad703a65623d301f6ea8f73', 1);
+INSERT INTO `users` (`id`, `name`, `surname`, `patronymic`, `email`, `login`, `password`, `position`) VALUES
+(1, 'admin', '', '', '', 'admin', '69e0aa3a5ad703a65623d301f6ea8f73', 1),
+(2, 'Андрей', 'Герасимов', 'Сергеевич', 'andrey.gerasimov2506@gmail.com', 'nrey25', '202cb962ac59075b964b07152d234b70', 2);
 
 --
 -- Индексы сохранённых таблиц
@@ -102,7 +104,7 @@ ALTER TABLE `applications`
 -- AUTO_INCREMENT для таблицы `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
