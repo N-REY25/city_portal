@@ -16,6 +16,7 @@
             <input type="text" placeholder="Введите email">
             <input type="password" placeholder="Введите пароль">
             <input type="password" placeholder="Повторите пароль">
+            <p>Нажимая кнопку регистрации вы автоматически соглашаетесь на обработку персональных данных</p>
             <button>Зарегистрироваться</button>
             <a href="/admin">Войти</a>
         </div>

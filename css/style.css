@@ -180,6 +180,7 @@ footer {
 }
 
 .form_login {
+    width: 300px;
     display: flex;
     flex-direction: column;
 }
@@ -208,6 +209,12 @@ footer {
     border-width: 2px;
     border-style: solid;
     border-color: #54A3FF;
+}
+
+.form_login p {
+    font-size: 13px;
+    text-align: justify;
+    margin-bottom: 10px;
 }
 
 .form_login button {
