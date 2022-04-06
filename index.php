@@ -37,7 +37,7 @@
         </section>
         <section class="counter">
             <div class="wrapper">
-                <h2>Решенных заявок: <span id="count"> загрузка...</span></h2>
+                <h2>Решенных заявок: <span id="count"><i class="fa fa-refresh fa-spin fa-fw margin-bottom"></i></span></h2>
                 <div class="hr"></div>
             </div>
         </section>
