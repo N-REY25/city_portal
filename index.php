@@ -1,6 +1,6 @@
 <?php
-    
-    $applications = R::('applications' 'WHERE status = 1');
+    require 'db.php';
+    $applications = R::find('applications', 'WHERE status = 1 ORDER BY id DESC LIMIT 4');
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -15,8 +15,8 @@
         <section class="preheader">
             <p>Сегодня <?php echo date("d.m.Y") ?></p>
             <div class="p_menu">
-                <a class="pm_a" href="#">Войти</a>
-                <a class="pm_a" href="#">Зарегистрироваться</a>
+                <a class="pm_a" href="/admin">Войти</a>
+                <a class="pm_a" href="/register">Зарегистрироваться</a>
             </div>
         </section>
         <header>
@@ -37,22 +37,32 @@
         </section>
         <section class="counter">
             <div class="wrapper">
-                <h2>Решенных заявок: 5</h2>
+                <h2>Решенных заявок: <span id="count"> загрузка...</span></h2>
                 <div class="hr"></div>
             </div>
         </section>
         <section class="content">
             <div class="wrapper">
                 <div class="c_items">
-                    <div class="c_item">
-                        <?php foreach ($applications as $app) : ?>
-                            <div class="ci_img">
-                                <p><i class="fa fa-calendar" aria-hidden="true"></i>03.03.2022 23:33</p>
-                                <p><i class="fa fa-bookmark" aria-hidden="true"></i>Дороги</p>
-                                <h3 class="ci_h3">Заголовок</h3>
+                    <?php foreach ($applications as $app) : ?>
+                        <div class="c_item">
+                            <style>
+                                .ci_img_<?=$app['id']?> {
+                                    background-image: url(img/app/<?=$app['photo_posle']?>);
+                                }
+                                                    
+                                .ci_img_<?=$app['id']?>:hover {
+                                    background-image: url(img/app/<?=$app['photo_do']?>);
+                                }
+                            </style>
+                            <div class="ci_img ci_img_<?=$app['id']?>"></div>
+                            <div></br>
+                                <h3 class="ci_h3"><?=$app['title']?></h3>
+                                <p><i class="fa fa-calendar" aria-hidden="true"></i><?=$app['date']?></p>
+                                <p><i class="fa fa-bookmark" aria-hidden="true"></i><?=$app['rubrika']?></p>
                             </div>
-                        <?php endforeach ?>
-                    </div>
+                        </div>
+                    <?php endforeach ?>
                 </div>
             </div>
         </section>
@@ -62,5 +72,21 @@
                 <p class="f_p">© LifeПенза, 2022</p>
             </div>
         </footer>
+        <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+        <script>
+            function ajax() {
+                $.ajax({
+                    url: '/api/',         /* Куда пойдет запрос */
+                    method: 'get',             /* Метод передачи (post или get) */
+                    dataType: 'json',          /* Тип данных в ответе (xml, json, script, html). */
+                    data: {method: 'solved_tasks'},     /* Параметры передаваемые в запросе. */
+                    success: function(data){   /* функция которая будет выполнена после успешного запроса.  */
+                        $('#count').text(data['count']);
+                    }
+                });
+            }
+
+            setInterval(ajax, 5000);
+        </script>
     </body>
 </html>
