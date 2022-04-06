@@ -236,6 +236,7 @@ footer {
     text-decoration: none;
     color: #54A3FF;
     margin-top: 20px;
+    font-size: 15px;
 }
 
 .form_login a:hover {
