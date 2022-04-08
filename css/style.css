@@ -284,3 +284,105 @@ footer {
 .cd_img {
     height: 150px;
 }
+
+/* ----------- */
+
+.categories_section {
+    display: flex;
+    justify-content: center;
+}
+
+.cs_create, .cs_viewer {
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+}
+
+.csc_input {
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+}
+
+.csc_input input{
+    border: none;
+    border-width: 2px;
+    border-style: solid;
+    border-color: #fff;
+    border-radius: 5px;
+    padding-top: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    outline: none;
+    transition: 0.3s;
+}
+
+.csc_input input:focus {
+    border: none;
+    border-width: 2px;
+    border-style: solid;
+    border-color: #54A3FF;
+}
+
+.csc_input button {
+    border: none;
+    border-width: 2px;
+    border-style: solid;
+    border-color: #54A3FF;
+    border-radius: 5px;
+    color: #54A3FF;
+    font-weight: bold;
+    padding-top: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.csc_input button:hover {
+    background-color: #54A3FF;
+    color: #fff;
+}
+
+.csc_rubriks {
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+}
+
+.csc_rub {
+    display: flex;
+    justify-content: space-between;
+    background-color: #fff;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #54A3FF;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    padding: 15px;
+}
+
+.cscr_input {
+    display: flex;
+}
+
+.cscr_input_i {
+    border: none;
+    border-width: 2px;
+    border-style: solid;
+    border-color: #ff3131;
+    border-radius: 20px;
+    color: #ff3131;
+    background-color: transparent;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.cscr_input_i:hover {
+    background-color: #ff3131;
+    color: #fff;
+}

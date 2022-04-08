@@ -55,3 +55,12 @@
             echo $json;
         }
     }
+
+    if ($_POST['method'] == 'cre_rub') {
+        $post = R::dispense('rubriks');
+        $post->name = $_POST['name'];
+        R::store($post);
+        $arr = ['status'=>'ok'];
+        $json = json_encode($arr);
+        echo $json;
+    }

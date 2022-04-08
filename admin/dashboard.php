@@ -24,13 +24,13 @@
         <header>
             <img class="h_img" src="../img/logo.svg" alt="Лого">
             <div class="h_menu">
-                <?php if ($_SESSION['user']->position == '2') : ?>
-                    <a class="hm_a" href="#">Мои заявки</a>
-                    <a class="hm_a" href="#">Создать заявку</a>
+            <?php if ($_SESSION['user']->position == '2') : ?>
+                    <a class="hm_a" href="/admin?page=my_applications">Мои заявки</a>
+                    <a class="hm_a" href="/admin?page=create_applications">Создать заявку</a>
                 <?php else : ?>
-                    <a class="hm_a" href="#">Категории</a>
-                    <a class="hm_a" href="#">Архив заявок</a>
-                    <a class="hm_a" href="#">Новые заявки</a>
+                    <a class="hm_a" href="/admin?page=categories">Категории</a>
+                    <a class="hm_a" href="/admin?page=archive">Архив заявок</a>
+                    <a class="hm_a" href="/admin?page=new_applications">Новые заявки</a>
                 <?php endif ?>
             </div>
         </header>

@@ -20,6 +20,11 @@
                     <a class="pm_a" href="/register">Зарегистрироваться</a>
                 <? else : ?>
                     <p class="pm_name"><?php echo $_SESSION['user']->surname ?> <?php echo $_SESSION['user']->name ?></p>
+                    <?php if ($_SESSION['user']->position == '1') :?>
+                        <a class="pm_a" href="/admin">Войти в панель управления</a>
+                    <?php else : ?>
+                        <a class="pm_a" href="/admin">Войти в личный кабинет</a>
+                    <?php endif ?>
                     <a class="pm_a" href="/admin?logout">Выйти</a>
                 <?php endif ?>
             </div>

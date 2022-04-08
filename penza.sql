@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Апр 08 2022 г., 07:24
+-- Время создания: Апр 08 2022 г., 12:03
 -- Версия сервера: 10.3.13-MariaDB-log
 -- Версия PHP: 7.1.32
 
@@ -59,6 +59,15 @@ CREATE TABLE `rubriks` (
   `id` int(11) NOT NULL,
   `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Дамп данных таблицы `rubriks`
+--
+
+INSERT INTO `rubriks` (`id`, `name`) VALUES
+(1, 'Преступность'),
+(2, 'Дороги'),
+(3, 'Мусор');
 
 -- --------------------------------------------------------
 
@@ -121,7 +130,7 @@ ALTER TABLE `applications`
 -- AUTO_INCREMENT для таблицы `rubriks`
 --
 ALTER TABLE `rubriks`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT для таблицы `users`
