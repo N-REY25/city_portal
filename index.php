@@ -15,8 +15,13 @@
         <section class="preheader">
             <p>Сегодня <?php echo date("d.m.Y") ?></p>
             <div class="p_menu">
-                <a class="pm_a" href="/admin">Войти</a>
-                <a class="pm_a" href="/register">Зарегистрироваться</a>
+                <?php if (!isset($_SESSION['user'])) :?>
+                    <a class="pm_a" href="/admin">Войти</a>
+                    <a class="pm_a" href="/register">Зарегистрироваться</a>
+                <? else : ?>
+                    <p class="pm_name"><?php echo $_SESSION['user']->surname ?> <?php echo $_SESSION['user']->name ?></p>
+                    <a class="pm_a" href="/admin?logout">Выйти</a>
+                <?php endif ?>
             </div>
         </section>
         <header>

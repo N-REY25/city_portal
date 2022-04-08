@@ -38,6 +38,10 @@ p, h1, h2, h3, h4 {
     padding-right: 40px;
 }
 
+.p_menu {
+    display: flex;
+}
+
 .pm_a {
     text-decoration: none;
     color: #fff;
@@ -45,6 +49,17 @@ p, h1, h2, h3, h4 {
 }
 
 .pm_a:hover {
+    text-decoration: underline;
+}
+
+.hm_a {
+    font-weight: bold;
+    text-decoration: none;
+    color: #54A3FF;
+    margin-left: 10px;
+}
+
+.hm_a:hover {
     text-decoration: underline;
 }
 
@@ -168,7 +183,7 @@ footer {
 
 /* --------- */
 
-.html_login {
+.html_login, .html_dashboard {
     height: 100%;
 }
 
@@ -248,4 +263,24 @@ footer {
 
 .form_login a:hover {
     text-decoration: underline;
+}
+
+/* ---------- */
+
+.body_dashboard {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.content_dashboard {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.cd_img {
+    height: 150px;
 }

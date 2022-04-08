@@ -4,6 +4,12 @@
         header('Location: /admin');
     }
 ?>
+<?php
+    //Проверка на авторизацию
+    if (!isset($_SESSION['user'])) {
+        header('Location: /admin');
+    }
+?>
 <!DOCTYPE html>
     <html class="html_dashboard" lang="ru">
     <head>
@@ -34,14 +40,8 @@
                 <?php endif ?>
             </div>
         </header>
-        <section class="content_dashboard">
-            <?php if ($_SESSION['user']->position == "1") :?>
-                <img class="cd_img" src="../img/2iFb.gif" alt="Котик 1">
-                <h1>Добро пожаловать в панель управления!</h1>
-            <?php else : ?>
-                <img class="cd_img" src="../img/6mz.gif" alt="Котик 1">
-                <h1>Добро пожаловать в личный кабинет!</h1>
-            <?php endif ?>
+        <section>
+            
         </section>
     </body>
 </html>
