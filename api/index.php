@@ -2,7 +2,7 @@
     require '../db.php';
 
     if ($_GET['method'] == 'solved_tasks') {
-        $count = R::count('applications');
+        $count = R::count('applications', 'WHERE status = 1');
         $arr = ['status'=>'ok', 'count'=>$count];
         $json = json_encode($arr);
         echo $json;

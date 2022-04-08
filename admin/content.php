@@ -4,6 +4,7 @@
         header('Location: /admin');
     } else {
         $rubriks = R::findAll('rubriks');
+        $applications = R::findAll('applications');
     }
 ?>
 <!DOCTYPE html>
@@ -76,8 +77,30 @@
                     });
                 }
             </script>
-        <?php elseif ($_GET['page'] == '') : ?>
-
+        <?php elseif ($_GET['page'] == 'archive') : ?>
+        <section class="archive_section">
+            <div class="wrapper">
+                <div class="as_viewer">
+                    <h2>Архив заявок</h2>
+                    <div class="asc_applications">
+                        <?php foreach ($applications as $app) : ?>
+                            <div class="asc_rub" action="/admin/" method="get">
+                                <h4><?=$app['title']?></h4>
+                                <div class="ascr_text">
+                                    <?php if ($app['status'] == 0) : ?>
+                                        <p class="ascr_text_0">Новая</p>
+                                    <?php elseif ($app['status'] == 1) : ?>
+                                        <p class="ascr_text_1">Решена</p>
+                                    <?php else : ?>
+                                        <p class="ascr_text_2">Отклонена</p>
+                                    <?php endif ?>
+                                </div>
+                            </div>
+                        <?php endforeach ?>
+                    </div>
+                </div>
+            </div>
+        </section>
         <?php else : ?>
             <section class="content_dashboard">
                 <?php if ($_SESSION['user']->position == "1") :?>

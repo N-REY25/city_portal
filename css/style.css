@@ -287,12 +287,12 @@ footer {
 
 /* ----------- */
 
-.categories_section {
+.categories_section, .archive_section {
     display: flex;
     justify-content: center;
 }
 
-.cs_create, .cs_viewer {
+.cs_create, .cs_viewer, .as_viewer {
     display: flex;
     flex-direction: column;
     margin-top: 40px;
@@ -348,15 +348,16 @@ footer {
     color: #fff;
 }
 
-.csc_rubriks {
+.csc_rubriks, .asc_applications {
     display: flex;
     flex-direction: column;
     margin-top: 30px;
 }
 
-.csc_rub {
+.csc_rub, .asc_rub{
     display: flex;
     justify-content: space-between;
+    align-items: center;
     background-color: #fff;
     border-width: 1px;
     border-style: solid;
@@ -366,7 +367,7 @@ footer {
     padding: 15px;
 }
 
-.cscr_input {
+.cscr_input, .ascr_text {
     display: flex;
 }
 
@@ -385,4 +386,34 @@ footer {
 .cscr_input_i:hover {
     background-color: #ff3131;
     color: #fff;
+}
+
+.ascr_text_0 {
+    background-color: #54A3FF;
+    color: #fff;
+    padding-top: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 5px;
+    border-radius: 20px;
+}
+
+.ascr_text_1 {
+    background-color: #32a250;
+    color: #fff;
+    padding-top: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 5px;
+    border-radius: 20px;
+}
+
+.ascr_text_2 {
+    background-color: #ff5454;
+    color: #fff;
+    padding-top: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 5px;
+    border-radius: 20px;
 }
